@@ -1,0 +1,66 @@
+<div>
+  <form [formGroup]="HomeProviderUpdateForm" (ngSubmit)="(UpdateHomeProvider(HomeProviderUpdateForm))">
+    <h1 class="display-4">Update offer for home</h1>
+
+    <label class="form-label mt-4">Name:</label>
+    <input formControlName="name" name="name" type="text" class="form-control"/>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('name')?.hasError('required')">
+      Name is required.
+    </div>
+
+    <label class="form-label mt-4">Description:</label>
+    <input class="form-control" formControlName="description" name="description" type="text"/>
+    <div class="form-text">Description of your situation. Nonrequired.</div>
+
+    <label class="form-label mt-4">Telephone number:</label>
+    <input class="form-control" formControlName="phone" name="phone" type="tel"/>
+    <div class="form-text">Contact on you.</div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('phone')?.hasError('required')">
+      Phone is required.
+    </div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('phone')?.hasError('pattern')">
+      This is not phone number.
+    </div>
+
+    <label class="form-label mt-4">Country:</label>
+    <input class="form-control" formControlName="country" name="country" type="text"/>
+    <div class="form-text">Country where you are.</div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('country')?.hasError('required')">
+      Country is required.
+    </div>
+
+    <label class="form-label mt-4">City:</label>
+    <input class="form-control" formControlName="city" name="city" type="text"/>
+    <div class="form-text">City where you are.</div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('city')?.hasError('required')">
+      City is required.
+    </div>
+
+    <label class="form-label mt-4">Adress:</label>
+    <input class="form-control" formControlName="address" name="address" type="text"/>
+    <div class="form-text">Adress of house.</div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('address')?.hasError('required')">
+      Address is required.
+    </div>
+
+    <label class="form-label mt-4">Provide:</label>
+    <input class="form-control" formControlName="provide" name="provide" type="text"/>
+    <div class="form-text">Things you can provide. Drugs, food...etc. Nonrequired</div>
+
+    <label class="form-label mt-4">Count of adults:</label>
+    <input class="form-control" formControlName="count" name="count" type="number" min="1" />
+    <div class="form-text">How many adults will travel...etc.</div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('count')?.hasError('required')">
+      Count is required.
+    </div>
+
+    <label class="form-label mt-4">Count of children:</label>
+    <input class="form-control" formControlName="countKids" name="countKids" type="number" min="0" />
+    <div class="form-text">How many children will travel...etc.</div>
+    <div class="text-danger" *ngIf="HomeProviderUpdateForm.get('countKids')?.hasError('required')">
+      Count of kids is required.
+    </div>
+
+    <input class="btn btn-success mx-auto d-block" type="submit" value="Update post"/>
+  </form>
+</div>
